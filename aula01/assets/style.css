@@ -31,6 +31,17 @@ body {
     outline: none;
     padding: 5px;
 }
+.div-forms select{
+    display: block; 
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 150px;
+}
 
 #nascimento{
     width: 150px;
@@ -42,8 +53,4 @@ body {
     width: 150px;
     margin-top: 35px;
     margin-bottom: 15px;
-}
-
-.div-forms form:first-child label{
-    margin-top: 150px;
 }
