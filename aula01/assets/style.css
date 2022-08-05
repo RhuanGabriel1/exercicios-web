@@ -32,4 +32,15 @@ body {
     padding: 5px;
 }
 
+#nascimento{
+    width: 150px;
+}
+
+#enviar{
+    color: white;
+    background-color: purple;
+    width: 150px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
 
