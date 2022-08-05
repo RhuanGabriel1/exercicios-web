@@ -52,7 +52,9 @@ const validaLimiteCaracteres = (e) => {
     const inputNome = document.getElementById("nome").value;
     if(inputNome.length >= 50){
         alert("Nome muito grande, atingiu o limite de caracteres: 50");
+        return false;
     }
+    return true;
 }
 
 const validaDataNascimento = (e) =>{
@@ -62,16 +64,20 @@ const validaDataNascimento = (e) =>{
     const dataNovoFormato = ((dataHoje.getFullYear() )) + "-0" + ((dataHoje.getMonth() + 1)) + "-0" + dataHoje.getDay();
     if(inputNascimento >= dataNovoFormato){
         alert("Data inválida!");
+        return false;
     }
     if(inputNascimento <= dataMinima){
         alert("Data inválida!");
+        return false;
     }
+    return true;
 }
 
 button.addEventListener('click' , (e) => {
     e.preventDefault();
-    validaDataNascimento();
-    validaLimiteCaracteres();   
+    if(validaDataNascimento() == true && validaLimiteCaracteres() == true){
+        alert("Deu certo!");
+    }
 }
 
 
