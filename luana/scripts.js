@@ -10,16 +10,16 @@ button.addEventListener('click', (event) => {
 
     if(nome.value.length  >= 50){
         alert("O campo nome ultrapassou a quantidade de caracteres esperados.");
-
-  return true;
-    }
-
     if (data >= dataAtual){
-        alert("Data Válida");
-        return true;
-    } else {
-        alert("Data Inválida");
-        return false;
+            alert("Data Válida");
+            return true;
+        } else {
+            alert("Data Inválida");
+           
+        }
+  
     }
+
+  
     
 })
