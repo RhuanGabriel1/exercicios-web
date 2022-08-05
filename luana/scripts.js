@@ -5,17 +5,14 @@ button.addEventListener('click', (event) => {
  //alert('botao acionado')
 
     const nome = document.getElementById('nome')
-    const data = document.getElementById('data')
+    const data = document.getElementById('data').value
     const dataAtual = new Date();
-    console.log(dataAtual);
-
+    const dataFormatada = ((dataAtual.getFullYear() )) + "-0" + ((dataAtual.getMonth() + 1)) + "-0"
+     + dataAtual.getDay();
     if(nome.value.length  >= 50){
         alert("O campo nome ultrapassou a quantidade de caracteres esperados.");   
     }
-
-    if (data >= dataAtual){
-        console.log(data);
+    if (data >= dataFormatada){ 
         alert("Data Válida");
-        return true;
     }   
 })
