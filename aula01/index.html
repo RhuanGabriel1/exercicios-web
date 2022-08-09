@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-
-
     <div class="div-forms">
-      <form action="" id="form">
+      <form action="http://localhost:3000/" id="form"  method="get">
         <label>Nome: </label>
-        <input type="text" id="nome">
+        <input type="text" name="nome" id="nome">
         <label>Data de Nascimento: </label>
-        <input type="date" id="nascimento">
+        <input type="date" name="nascimento" id="nascimento">
         <label>País: </label>
         <select id="pais">
           <option value="">Selecione</option>
@@ -32,9 +30,10 @@
         <input type="text" id="bairro">
         <label>Rua: </label>
         <input type="text" id="rua">
-        <button id="enviar">Enviar</button> 
+        <button type="submit" id="enviar">Enviar</button> 
       </form>
     </div>
     <script src="assets/script.js"></script>
+    <script src="assets/server.js"></script>
   </body>
 </html>

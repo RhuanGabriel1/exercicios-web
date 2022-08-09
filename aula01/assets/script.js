@@ -73,15 +73,15 @@ const validaDataNascimento = (e) =>{
     return true;
 }
 
-button.addEventListener('click' , (e) => {
-    e.preventDefault();
-    if(validaDataNascimento() == true && validaLimiteCaracteres() == true){
-        alert("Deu certo!");
-    }
-}
+// button.addEventListener('click' , (e) => {
+//     e.preventDefault();
+//     if(validaDataNascimento() == true && validaLimiteCaracteres() == true){
+//         alert("Deu certo!");
+//     }
+// }
 
 
-)
+
 
 buscarPaises();
 buscarEstados();
