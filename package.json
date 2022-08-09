@@ -1,0 +1,23 @@
+{
+  "name": "exercicios-web",
+  "version": "1.0.0",
+  "description": "Repositório de exercícios de Desenvolvimento de Sistemas Web",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RhuanGabriel1/exercicios-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RhuanGabriel1/exercicios-web/issues"
+  },
+  "homepage": "https://github.com/RhuanGabriel1/exercicios-web#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
