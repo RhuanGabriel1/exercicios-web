@@ -4,12 +4,12 @@ let port = 3000;
 let server = http.createServer(function(req, res){
     let pagina = "";
     let rota = req.url;
-    let url = rota.split('/');
-    console.log(url);
+    let urlNoBackSlash = rota.split('/?&');
+    console.log(urlNoBackSlash);
+    // let urlNoQuestionPoint = urlNoBackSlash.;
+    // console.log(urlNoQuestionPoint);
+
     res.end(pagina);
-
-    console.log();
-
 });
 
 server.listen(port);
