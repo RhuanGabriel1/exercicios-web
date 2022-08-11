@@ -9,14 +9,10 @@ let server = http.createServer(function(req, res){
     urlNoBackSlash = urlNoBackSlash.replace(".ico", "");
     urlNoBackSlash = urlNoBackSlash.replace("+", " ");
     urlNoBackSlash = urlNoBackSlash.replace("&", ", ");
-    console.log(urlNoBackSlash);
+    pagina = "<html><head><meta charset = 'UTF-8'><body><p>"+ urlNoBackSlash +"</p></body></html>";
     res.end(pagina);
-    getText();
 });
 
-function getText (){
-    console.log(urlNoBackSlash);;
-} 
 
 server.listen(port);
 console.log("Servidor escutando na porta: ", port);
