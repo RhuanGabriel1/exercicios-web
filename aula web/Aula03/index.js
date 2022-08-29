@@ -4,4 +4,7 @@ const routes = require("./app/routes/routes");
 routes.home(app);
 routes.tarsila(app);
 routes.portinari(app);
+routes.insertingPainting(app);
+routes.savePainting(app);
+
 

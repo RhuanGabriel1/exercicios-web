@@ -22,7 +22,18 @@ module.exports ={
             portinari(app, req, res);
             
         });
+    },
+    insertingPainting : (app) =>{
+        app.get('/inserirobra', (req, res) =>{
+            res.render('insertPainting.ejs');
+        })
+    },
+    
+    savePainting : (app) =>{
+        app.post('/obra/salvar', (req, res) =>{
+          console.log('[Rota salvar obra]');
+          let painting = req.body;
+          console.log(painting);
+        })
     }
-
-
 }

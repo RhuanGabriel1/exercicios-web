@@ -6,6 +6,9 @@ const port = process.env.PORT ||3000;
 app.set("view engine", "ejs");
 app.use(express.static('./public'));
 app.set('views', './app/views');
+app.use(express.json());
+app.use
+
 app.listen(port, () => {
     console.log("Servidor na porta: ", port);
 });
