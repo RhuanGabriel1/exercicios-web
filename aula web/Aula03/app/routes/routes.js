@@ -1,4 +1,5 @@
 const { home } = require('../controllers/home');
+const { addPaintingController } = require('../controllers/home');
 const { tarsila } = require('../controllers/tarsila');
 const { portinari } = require('../controllers/portinari');
 
@@ -23,17 +24,14 @@ module.exports ={
             
         });
     },
-    insertingPainting : (app) =>{
-        app.get('/inserirobra', (req, res) =>{
-            res.render('insertPainting.ejs');
+    insertPainting: (app) => {
+        app.get('/inserirobra', function (req, res) {
+          res.render('insertPainting.ejs');
+        });
+      },
+      savePainting: (app) => {
+        app.post('/obra/salvar', (req, res) => {
+          addPaintingController(app, req, res); //Novo controller
         })
-    },
-    
-    savePainting : (app) =>{
-        app.post('/obra/salvar', (req, res) =>{
-          console.log('[Rota salvar obra]');
-          let painting = req.body;
-          console.log(painting);
-        })
-    }
+      },
 }
