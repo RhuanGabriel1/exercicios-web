@@ -33,7 +33,7 @@ module.exports ={
       savePainting: (app) => {
         app.post('/obra/salvar', [
             check('nome').isLength({min:1, max:100}).withMessage('Nome deve ter no mínimo 5 caracteres'),
-            check('ano').isLength({min:0, max:2100}).isNumeric().withMessage('Ano deve ser numérico e conter 4 números'),
+            check('ano').isLength({min:0, max:4}).isNumeric().withMessage('Ano deve ser numérico e conter 4 números').is,
             check('artista').isLength({min:1, max:100}).withMessage('Artista deve ter no mínimo 5 caracteres'),
             check('urlimagem').isURL().withMessage('URL da imagem deve conter um link')
         ],(req,res) => {
@@ -42,7 +42,7 @@ module.exports ={
             if (!err.isEmpty()) {
                 let errors = err.array();
                 res.render('insertPainting.ejs', {painting: painting, errors: errors});
-                return;
+                
             }
           addPaintingController(app, req, res); //Novo controller
         });
