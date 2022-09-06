@@ -3,11 +3,11 @@ const { addPaintingController } = require('../controllers/home');
 const { tarsila } = require('../controllers/tarsila');
 const { portinari } = require('../controllers/portinari');
 const {check, validationResult} = require('express-validator');
+const {obra} = require('../controllers/obra');
 
 module.exports ={
     home: (app) => {
         app.get('/', (req, res) => {
-            //res.render("home.ejs");
             home(app, req, res);
         });
     },
@@ -23,6 +23,12 @@ module.exports ={
         app.get('/portinari', (req, res) => {
             portinari(app, req, res);
             
+        });
+    },
+    showPainting: (app) =>{
+        app.get('/obradearte', (req, res) => {
+            console.log("Chegou na rota");
+            obra(app, req, res);
         });
     },
     insertPainting: (app) => {
@@ -49,5 +55,7 @@ module.exports ={
             }
           addPaintingController(app, req, res); //Novo controller
         });
-      }
+      },
+
+      
 }
