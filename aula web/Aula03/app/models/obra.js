@@ -1,6 +1,7 @@
 module.exports = {
-    getPaintings: (dbConnection, callback) => {
-        dbConnection.query("select * from obrasdearte where idobra=1 ;", callback);
+    getPaintings: (dbConnection, id, callback) => {
+        console.log(id);
+        dbConnection.query("select * from obrasdearte where idobra=" + id +";", callback);
     }
 
     // addPainting: (painting, dbConnection, callback) => {

@@ -28,6 +28,7 @@ module.exports ={
     showPainting: (app) =>{
         app.get('/obradearte', (req, res) => {
             console.log("Chegou na rota");
+            // let id = req.params.idobra;
             obra(app, req, res);
         });
     },
