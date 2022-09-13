@@ -14,6 +14,7 @@
     "express-validator": "^6.14.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.19",
-    "save": "^2.5.0"
+    "save": "^2.5.0",
+    "winston": "^3.8.2"
   }
 }

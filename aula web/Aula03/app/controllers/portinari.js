@@ -1,11 +1,19 @@
 const dbConnection = require('../../config/dbConnection')
 const { getPaintings } = require('../models/portinari')
+const  logger  = require('../logger/winston');
+
 
 module.exports.portinari = (app, req, res) => {
-    console.log('[Controller Home]');
     const db = dbConnection();
     getPaintings(db, (error,result) =>{
-        console.log(result, error);
-        res.render('portinari.ejs', {paintings: result});
+        if(error){
+            logger.log({
+                level: 'error',
+                message: error.message
+            });
+            res.render("error.ejs")
+        } else{
+            res.render('portinari.ejs', {paintings: result});
+        }
     })
 }

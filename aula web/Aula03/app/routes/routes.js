@@ -4,6 +4,7 @@ const { tarsila } = require('../controllers/tarsila');
 const { portinari } = require('../controllers/portinari');
 const {check, validationResult} = require('express-validator');
 const {obra} = require('../controllers/obra');
+const { error } = require('../controllers/error');
 
 module.exports ={
     home: (app) => {
@@ -30,6 +31,11 @@ module.exports ={
             console.log("Chegou na rota");
             // let id = req.params.idobra;
             obra(app, req, res);
+        });
+    },
+    showErrors: (app) =>{
+        app.get('/erro', (req, res) => {
+            error(app, req, res)
         });
     },
     insertPainting: (app) => {

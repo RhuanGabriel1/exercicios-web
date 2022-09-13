@@ -1,22 +1,37 @@
 const dbConnection = require('../../config/dbConnection')
 const { getPaintings } = require('../models/home')
 const { addPainting } = require('../models/home')
+const  logger  = require('../logger/winston');
 
 module.exports.home = (app, req, res) => {
     console.log('[Controller Home]');
     const db = dbConnection();
     getPaintings(db, (error,result) =>{
-        console.log(result, error);
-        res.render('home.ejs', {paintings: result});
+        if(error){
+            logger.log({
+                level: 'error',
+                message: error.message
+            });
+            res.render("error.ejs")
+        }else{
+            res.render('home.ejs', {paintings: result});
+        }
     })
 }
 
 module.exports.addPaintingController = (app, req, res) => {
     console.log('[Controller Home Add Painting]');
     let painting = req.body;
-    console.log(painting);
     dbConn = dbConnection();
     addPainting(painting, dbConn, (error, result) => {
-      res.redirect('/');
+        if(error){
+            logger.log({
+                level: 'error',
+                message: error.message
+            });
+            res.render("error.ejs")
+        }else{
+            res.redirect('/');
+        }
     });
 }
