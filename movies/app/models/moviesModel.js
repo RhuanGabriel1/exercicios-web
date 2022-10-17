@@ -1,4 +1,5 @@
 const client = require('../../config/dbConnection');
+const {ObjectId} = require('mongodb');
 
 module.exports = class MovieModel{
     static async getAllMovies(){
@@ -8,6 +9,14 @@ module.exports = class MovieModel{
         console.log(movies);
         return movies;
     }
+
+    static getMovieById(movieId){
+        console.log(`[getMovieById Model] ${movieId}`);
+        movieId = new ObjectId(movieId);
+        const movie = await client.db("dsw").collection("movies").findOne({_id:movieId});
+        return movie;
+    }
+
     static async addMovie(data){
         console.log(`[Movie Model - Add Movie] ${data}`);
         try {
