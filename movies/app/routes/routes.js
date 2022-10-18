@@ -11,7 +11,7 @@ module.exports = {
     },
 
     deleteMovieByid: (app) =>{
-        app.delete('/api/filmes:id', Movies.deleteMovieByid);
+        app.delete('/api/filmes/:id', Movies.deleteMovieByid);
     }
     
 }

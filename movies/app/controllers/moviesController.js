@@ -49,6 +49,7 @@ module.exports = class Movies{
     static async deleteMovieByid(req, res, next){
         try{
             const id = req.params.id
+            console.log(`id: `+ id);
             const removeMovie = await Movie.deleteMovieByid(id);
             res.status(200).json(removeMovie);
         }catch(error){
