@@ -1,3 +1,4 @@
+const { deleteMovieByid } = require('../controllers/moviesController');
 const Movies = require('../controllers/moviesController');
 
 module.exports = {
@@ -7,5 +8,10 @@ module.exports = {
     },
     addMovie: (app) => {
         app.post('/api/filmes', Movies.addMovie);
+    },
+
+    deleteMovieByid: (app) =>{
+        app.delete('/api/filmes:id', Movies.deleteMovieByid);
     }
+    
 }

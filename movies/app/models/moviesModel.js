@@ -10,19 +10,28 @@ module.exports = class MovieModel{
         return movies;
     }
 
-    static getMovieById(movieId){
+    static async getMovieById(movieId){
         console.log(`[getMovieById Model] ${movieId}`);
         movieId = new ObjectId(movieId);
         const movie = await client.db("dsw").collection("movies").findOne({_id:movieId});
         return movie;
     }
 
+    static async deleteMovieByid(movieId){
+        console.log(`[deleteMovieById Model] ${movieId}`);
+        movieId = new ObjectId(movieId);
+        try {
+            client.db("dsw").collection("movies").deleteOne({_id:movieId});
+        } catch (error) {
+            console.log(`[movieDeleteService] Error: ${error}`);
+        }
+    }
+
     static async addMovie(data){
         console.log(`[Movie Model - Add Movie] ${data}`);
         try {
             const newMovie = {name: data.name, director: data.director, link:data.link}
-            const addedMovie = await 
-            client.db("dsw").collection("movies").insertOne(newMovie);
+            const addedMovie = await client.db("dsw").collection("movies").insertOne(newMovie);
             console.log(`New Movie inserted with following id ${addedMovies.insertedId}`);
             return addedMovie;
         } catch (error) {
