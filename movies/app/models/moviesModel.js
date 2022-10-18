@@ -17,6 +17,16 @@ module.exports = class MovieModel{
         return movie;
     }
 
+    static async updateMovieById(movieId){
+        console.log(`[updateMovieById Model] ${movieId}`);
+        movieId = new ObjectId(movieId);
+        try {
+            
+        } catch (error) {
+            console.log(`[movieUpdateService] Error: ${error}`);
+        }
+    }
+
     static async deleteMovieByid(movieId){
         console.log(`[deleteMovieById Model] ${movieId}`);
         movieId = new ObjectId(movieId);

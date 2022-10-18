@@ -1,4 +1,4 @@
-const { deleteMovieByid } = require('../controllers/moviesController');
+const { deleteMovieByid, updateMovieById } = require('../controllers/moviesController');
 const Movies = require('../controllers/moviesController');
 
 module.exports = {
@@ -12,6 +12,10 @@ module.exports = {
 
     deleteMovieByid: (app) =>{
         app.delete('/api/filmes/:id', Movies.deleteMovieByid);
+    },
+
+    updateMovieById:(app) =>{
+        app.put('/api/filmes/:id', Movies.updateMovieById);
     }
     
 }

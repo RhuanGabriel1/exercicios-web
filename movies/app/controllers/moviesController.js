@@ -56,4 +56,14 @@ module.exports = class Movies{
             res.status(500).json({error:error});
         }
     }
+
+    static async updateMovieById(req, res,next){
+        try {
+            const id = req.params.id
+            const updateMovie = Movie.updateMovieById(id);
+            res.status(200).json(updateMovie);
+        } catch (error) {
+            res.status(500).json({error:error});
+        }
+    }
 }
