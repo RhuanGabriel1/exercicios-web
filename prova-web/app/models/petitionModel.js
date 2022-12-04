@@ -11,7 +11,7 @@ module.exports = class PetitionModel{
         return petitions;
     }
 
-    static async getOnePetition(Id){
+    static async getOnePetitionById(Id){
         console.log(`Get One Petition by: ${Id}`);
         Id = new ObjectId(Id);
         const petition = await client.db("prova").collection("peticoes").findOne({_id:Id});
@@ -29,6 +29,27 @@ module.exports = class PetitionModel{
             return addedPetition;
         }catch(error){
             console.log(`[POST PETITION ERROR: ${error}]`);
+        }
+    }
+
+    static async deletePetitionById(Id){
+        console.log(`DELETE Petition by:  ${Id}`);
+        Id = new ObjectId(Id);
+        try {
+            client.db("prova").collection("peticoes").deleteOne({_id:Id});
+            console.log("Deletado com sucesso");
+        } catch (error) {
+            console.log(`[DELETE PETITION ERROR: ${error}]`);
+        }
+    }
+
+    static async updatePetitionById(Id){
+        console.log(`PUT Petition by: ${Id}`);
+        Id = new ObjectId(Id);
+        try {
+            
+        } catch (error) {
+            console.log(`PUT PETITION ERROR: ${error}`);
         }
     }
 

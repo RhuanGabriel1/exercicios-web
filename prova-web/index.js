@@ -5,3 +5,5 @@ const routes = require('./app/routes/routes');
 routes.addPetition(app);
 routes.getAllPetition(app);
 routes.apiGetOnePetition(app);
+routes.deletePetitionByid(app);
+routes.updatePetitionById(app);

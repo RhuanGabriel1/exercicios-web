@@ -34,7 +34,7 @@ module.exports = class Petitions {
         try {
             const id = req.params.id
             console.log("ID: " + id);
-            const onePetition = await Petition.getOnePetition(id);
+            const onePetition = await Petition.getOnePetitionById(id);
             if(onePetition.length<=0){
                 res.status(400).json('Não existe petições cadastradas');
                 return;
@@ -61,6 +61,27 @@ module.exports = class Petitions {
         try {
             const addedPetition = await Petition.addPetition(req.body);
             res.status(200).json(addedPetition);
+        } catch (error) {
+            res.status(500).json({error:error});
+        }
+    }
+
+    static async deletePetitionById(req, res, next){
+        try {
+            const id = req.params.id
+            console.log(`id: `+ id);
+            const removePetition = await Petition.deletePetitionById(id);
+            res.status(200).json(`Petição: ${removePetition} removida com sucesso` );
+        } catch (error) {
+            res.status(500).json(`Deu ruim`);
+        }
+    }
+
+    static async updatePetitionById(req, res, next){
+        try {
+            const id = req.params.id;
+            const updatePetition = Petition.updatePetitionById(id);
+            res.status(200).json(updatePetition);
         } catch (error) {
             res.status(500).json({error:error});
         }
