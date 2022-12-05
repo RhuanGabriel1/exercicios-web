@@ -80,8 +80,11 @@ module.exports = class Petitions {
     static async updatePetitionById(req, res, next){
         try {
             const id = req.params.id;
-            const updatePetition = Petition.updatePetitionById(id);
-            res.status(200).json(updatePetition);
+            const obj = {}; 
+            obj['titulo'] = req.body.titulo;
+            console.log("Objeto titulo " + obj['titulo']);
+            const updatePetition = Petition.updatePetitionById(id, obj);
+            res.status(200).json(`Petição ${updatePetition} alterado com sucesso`);
         } catch (error) {
             res.status(500).json({error:error});
         }

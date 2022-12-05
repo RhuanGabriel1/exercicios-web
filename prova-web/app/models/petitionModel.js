@@ -43,11 +43,14 @@ module.exports = class PetitionModel{
         }
     }
 
-    static async updatePetitionById(Id){
+    static async updatePetitionById(Id, Obj){
         console.log(`PUT Petition by: ${Id}`);
         Id = new ObjectId(Id);
         try {
-            
+            const petition = await client.db("prova").collection("peticoes").findOne({_id:Id});
+            console.log("Olha: " + petition);
+            await petition.updateOne(Obj);
+            console.log(`Petição: ${Id} foi alterado`);
         } catch (error) {
             console.log(`PUT PETITION ERROR: ${error}`);
         }
