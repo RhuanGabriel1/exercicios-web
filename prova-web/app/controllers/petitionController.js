@@ -82,9 +82,20 @@ module.exports = class Petitions {
             const id = req.params.id;
             const obj = {}; 
             obj['titulo'] = req.body.titulo;
-            console.log("Objeto titulo " + obj['titulo']);
             const updatePetition = Petition.updatePetitionById(id, obj);
             res.status(200).json(`Petição ${updatePetition} alterado com sucesso`);
+        } catch (error) {
+            res.status(500).json({error:error});
+        }
+    }
+
+    static async signPetition(req, res, next){
+        try {
+            const id = req.params.id;
+            const obj = {}; 
+            obj['assinantes'] = req.body.assinantes;
+            const signPetition = Petition.updatePetitionById(id, obj);
+            res.status(200).json(`Petição ${signPetition} assinada com sucesso`);
         } catch (error) {
             res.status(500).json({error:error});
         }

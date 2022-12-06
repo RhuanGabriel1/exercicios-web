@@ -16,5 +16,8 @@ module.exports = {
     },
     updatePetitionById: (app) =>{
         app.put('/api/petitions/:id', Petition.updatePetitionById);
+    },
+    signPetition: (app) =>{
+        app.put('/api/petitions/:id', Petition.signPetition);
     }
 }
