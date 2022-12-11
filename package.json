@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Repositório de exercícios de Desenvolvimento de Sistemas Web",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "test": "jest"
   },
