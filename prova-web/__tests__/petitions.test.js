@@ -112,19 +112,19 @@ describe('delete peticao route', () => {
   describe('remove sign petition', () => {
     describe('remove sign petition with authentication ', () => {
       it('should return a 200', async () => {
-        await supertest(app).delete(`${signUrl}/`+1).set('x-access-token', token).expect(200);
+        await supertest(app).delete(`${removeSignUrl}/`+1).set('x-access-token', token).expect(200);
       });
     });
   });
 
   describe('invalid authentication', () => {
     it('should return a 401', async () => {
-      await supertest(app).delete(`${signUrl}/`+1).expect(401);
+      await supertest(app).delete(`${removeSignUrl}/`+1).expect(401);
   }); 
   });
   
   describe('invalid peticao', () => {
     it('should return a 404', async () => {
-      await supertest(app).delete(`${signUrl}/637641fd812566f758852115`).set('x-access-token', token).expect(404);
+      await supertest(app).delete(`${removeSignUrl}/637641fd812566f758852115`).set('x-access-token', token).expect(404);
     });
   });
