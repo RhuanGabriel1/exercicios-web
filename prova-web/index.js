@@ -8,3 +8,5 @@ routes.apiGetOnePetition(app);
 routes.deletePetitionByid(app);
 routes.updatePetitionById(app);
 routes.signPetition(app);
+routes.authUser(app);
+routes.removeSign(app);
